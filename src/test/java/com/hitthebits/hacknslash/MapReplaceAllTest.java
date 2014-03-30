@@ -17,22 +17,22 @@ public class MapReplaceAllTest {
     @Test
     public void java7Approach() {
         for (Map.Entry<String, Integer> entry : scores.entrySet()) {
-            if (entry.getValue() < 50) {
-                entry.setValue(entry.getValue() + 50);
+            if (entry.getValue() < 500) {
+                entry.setValue(entry.getValue() + 500);
             }
         }
-        assertAllScoresAreGreaterThanOrEqualTo50();
+        assertAllScoresAreGreaterThanOrEqualTo500();
     }
 
     @Test
     public void java8Approach() {
-        scores.replaceAll((name, score) -> score < 50 ? score + 50 : score);
-        assertAllScoresAreGreaterThanOrEqualTo50();
+        scores.replaceAll((name, score) -> score < 500 ? score + 500 : score);
+        assertAllScoresAreGreaterThanOrEqualTo500();
     }
 
-    private void assertAllScoresAreGreaterThanOrEqualTo50() {
+    private void assertAllScoresAreGreaterThanOrEqualTo500() {
         for (int score : scores.values()) {
-            assertTrue(score >= 50);
+            assertTrue(score >= 500);
         }
     }
 }

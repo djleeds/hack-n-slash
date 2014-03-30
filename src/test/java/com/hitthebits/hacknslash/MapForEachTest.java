@@ -24,7 +24,9 @@ public class MapForEachTest {
         final StringBuilder rendered = new StringBuilder();
 
         for (Map.Entry<String, Integer> entry : scores.entrySet()) {
-            rendered.append(String.format("%s has a score of %d\n", entry.getKey(), entry.getValue()));
+            String n = entry.getKey();
+            int s = entry.getValue();
+            rendered.append(String.format("%s has a score of %d\n", n, s));
         }
 
         assertEquals(EXPECTED, rendered.toString());
@@ -34,8 +36,8 @@ public class MapForEachTest {
     public void java8Approach() {
         final StringBuilder rendered = new StringBuilder();
 
-        scores.forEach((name, score) -> {
-            rendered.append(String.format("%s has a score of %d\n", name, score));
+        scores.forEach((n, s) -> {
+            rendered.append(String.format("%s has a score of %d\n", n, s));
         });
 
         assertEquals(EXPECTED, rendered.toString());
